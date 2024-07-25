@@ -1,8 +1,8 @@
 // src/components/pages/LogoScreen.jsx
 import React, { useEffect } from "react";
-import "./LogoScreen.css"; // Importa los estilos específicos para la animación
 import FichaPoker from "../atoms/FichaPoker";
 import Logo from "../atoms/Logo";
+import "../../styles/pages/SplashScreen.css";
 
 const LogoScreen = ({ showSplashScreen, setShowSplashScreen }) => {
   useEffect(() => {
