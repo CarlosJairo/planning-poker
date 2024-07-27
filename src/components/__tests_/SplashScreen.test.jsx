@@ -2,14 +2,13 @@ import React from "react";
 import { render, screen, waitFor } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import SplashScreen from "../pages/SplashScreen";
-import FichaPoker from "../atoms/FichaPoker";
-import Logo from "../atoms/Logo";
 
 // Mock de los componentes hijos
 jest.mock("../atoms/FichaPoker", () => () => <svg data-testid="ficha-poker" />);
 jest.mock("../atoms/Logo", () => () => <svg data-testid="logo" />);
 
 describe("SplashScreen", () => {
+  // Verifica que los elementos SVG se rendericen
   test("renders FichaPoker and Logo", () => {
     const setShowSplashScreen = jest.fn();
 
@@ -20,7 +19,6 @@ describe("SplashScreen", () => {
       />
     );
 
-    // Verifica que los elementos SVG se rendericen
     expect(screen.getByTestId("ficha-poker")).toBeInTheDocument();
     expect(screen.getByTestId("logo")).toBeInTheDocument();
   });
