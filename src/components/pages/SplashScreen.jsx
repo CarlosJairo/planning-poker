@@ -4,7 +4,7 @@ import FichaPoker from "../atoms/FichaPoker";
 import Logo from "../atoms/Logo";
 import "../../styles/pages/SplashScreen.css";
 
-const LogoScreen = ({ showSplashScreen, setShowSplashScreen }) => {
+const SplashScreen = ({ showSplashScreen, setShowSplashScreen }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowSplashScreen(false);
@@ -21,4 +21,4 @@ const LogoScreen = ({ showSplashScreen, setShowSplashScreen }) => {
   );
 };
 
-export default LogoScreen;
+export default SplashScreen;
