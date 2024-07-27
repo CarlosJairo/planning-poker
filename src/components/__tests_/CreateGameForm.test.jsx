@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import CreateGameForm from "../organisms/CreateGameForm";
 
@@ -47,5 +47,22 @@ describe("CreateGameForm", () => {
 
     // Verifica que el botón esté habilitado
     expect(button).toBeEnabled();
+  });
+
+  test("calls onSubmit with valid name", async () => {
+    const onSubmit = jest.fn();
+    render(<CreateGameForm onSubmit={onSubmit} />);
+
+    const input = screen.getByRole("textbox");
+    const button = screen.getByRole("button", { name: /Crear partida/i });
+
+    // Simula el ingreso de un nombre válido
+    fireEvent.change(input, { target: { value: "Sprint 32" } });
+    fireEvent.click(button);
+
+    // Verifica que el onSubmit se llama con el nombre correcto
+    await waitFor(() => {
+      expect(onSubmit).toHaveBeenCalledWith("Sprint 32");
+    });
   });
 });
