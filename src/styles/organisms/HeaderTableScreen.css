@@ -1,0 +1,47 @@
+.header-table-screen {
+  display: grid;
+  grid-template-columns: 25% 1fr 25%;
+  align-items: center;
+  padding: 0 0.8rem 0;
+  height: 6rem;
+}
+
+.header-table-screen svg {
+  height: clamp(2.5rem, 8vw, 4rem);
+}
+
+h1 {
+  text-align: center;
+  font-size: clamp(1.2rem, 6vw, 2rem);
+}
+
+.menu-table-screen {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.4rem;
+}
+
+.user-logo {
+  display: grid;
+  place-items: center;
+  height: clamp(2rem, 6vw, 3.5rem);
+  width: clamp(2rem, 6vw, 3.5rem);
+  width: 2.2rem;
+  height: 2.2rem;
+  font-size: 1.5rem;
+  background-color: #bdbdff;
+  color: #330072;
+  border-radius: 50%;
+  text-transform: uppercase;
+}
+
+.invite-players-btn {
+  background-color: transparent;
+  border: 1px solid white;
+  border-radius: 12px;
+  padding: 0.4rem 0.8rem;
+  text-wrap: nowrap;
+  color: #ffffff;
+  display: none;
+}

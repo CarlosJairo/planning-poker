@@ -1,0 +1,96 @@
+.table-and-players {
+  display: grid;
+  grid-template-columns: 1fr 50% 1fr; /* Tres columnas de igual tamaño */
+  grid-template-areas:
+    "admin admin admin"
+    "user7 tableLocker user1"
+    "user6 tableLocker user2"
+    "user5 tableLocker user3"
+    "currentUser currentUser currentUser";
+  grid-template-rows: repeat(5, auto);
+  gap: 0.4rem 0;
+  width: 90%;
+  max-width: 700px;
+  height: 100%;
+  padding-top: 6rem;
+  margin: auto; /* Para centrar el contenedor */
+}
+
+.table-and-players > * {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin {
+  grid-area: admin;
+  text-align: center;
+}
+
+.tableLocker {
+  grid-area: tableLocker;
+  text-align: center;
+  grid-row: 2 / span 3; /* Ocupa desde la fila 2 hasta la 4 */
+}
+
+.user1 {
+  grid-area: user1;
+  text-align: center;
+  justify-content: flex-end;
+}
+
+.user2 {
+  grid-area: user2;
+  text-align: center;
+  justify-content: flex-end;
+}
+
+.user3 {
+  grid-area: user3;
+  text-align: center;
+  justify-content: flex-end;
+}
+
+.currentUser {
+  grid-area: currentUser;
+  text-align: center;
+}
+
+.user5 {
+  grid-area: user5;
+  text-align: center;
+  justify-content: flex-start;
+}
+
+.user6 {
+  grid-area: user6;
+  text-align: center;
+  justify-content: flex-start;
+}
+
+.user7 {
+  grid-area: user7;
+  text-align: center;
+  justify-content: flex-start;
+}
+
+@media (min-width: 479px) {
+  .table-and-players {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr; /* Cinco columnas de igual tamaño */
+    grid-template-rows: 1fr 50% 1fr; /* Tres filas de altura automática */
+    grid-template-areas:
+      "user6 user7 admin user1 user2"
+      "user6 tableLocker tableLocker tableLocker user2"
+      "user6 user5 currentUser user3 user2";
+  }
+
+  .tableLocker {
+    grid-row: 2 / span 1;
+  }
+
+  .table-and-players > * {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

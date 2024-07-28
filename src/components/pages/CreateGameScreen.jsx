@@ -1,7 +1,7 @@
 // src/components/pages/CreateGameScreen.jsx
 import React from "react";
 import CreateGameForm from "../organisms/CreateGameForm";
-import Header from "../organisms/Header";
+import Header from "../organisms/HeaderHome";
 import "../../styles/pages/CreateGameScreen.css";
 
 const CreateGameScreen = () => {

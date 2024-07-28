@@ -1,18 +1,17 @@
 .header-home {
-  position: fixed;
-  top: 0;
-  display: flex;
   justify-content: flex-start;
   padding: 3rem 2rem;
-  width: 100%;
 }
 
+.header-home h2 {
+  font-size: clamp(1.2rem, 6vw, 2rem);
+}
 .logo-subtitulo-ctn {
   display: flex;
   align-items: center;
   gap: 1rem;
 }
 
-.logo-subtitulo-ctn img {
-  width: clamp(3rem, 3vw, 20rem);
+.logo-subtitulo-ctn svg {
+  width: clamp(3rem, 5vw, 20rem);
 }
