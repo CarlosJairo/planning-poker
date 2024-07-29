@@ -1,11 +1,21 @@
-import { useParams } from "react-router-dom";
+import React from "react";
+import FichaPoker from "../atoms/FichaPoker";
+import UserLogo from "../atoms/UserLogo";
+import { useSelector } from "react-redux";
+import "../../styles/organisms/HeaderTableScreen.css";
 
 const HeaderTableScreen = () => {
-  const { gameName } = useParams("gameName");
-  console.log(gameName);
+  const { gameName } = useSelector((state) => state.game);
+  const { name } = useSelector((state) => state.user);
+
   return (
-    <header style={{ textAlign: "center", padding: "2rem" }}>
+    <header className="header-table-screen">
+      <FichaPoker />
       <h1>{gameName}</h1>
+      <div className="menu-table-screen">
+        <UserLogo name={name} />
+        <button className="invite-players-btn">Invitar jugadores</button>
+      </div>
     </header>
   );
 };

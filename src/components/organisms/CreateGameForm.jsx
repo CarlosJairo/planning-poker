@@ -3,10 +3,23 @@ import Input from "../atoms/InputText";
 import Label from "../atoms/Label";
 import ButtonSubmit from "../atoms/ButtonSubmit";
 import useForm from "../../hooks/useForm";
-import "../../styles/organisms/CreateGameForm.css";
+import { useNavigate } from "react-router-dom";
 
-const CreateGameForm = ({ onSubmit }) => {
+import "../../styles/organisms/CreateGameForm.css";
+import { useDispatch } from "react-redux";
+import { setOwerRol } from "../../reducers/user/userSlice";
+
+const CreateGameForm = () => {
   const { name, setName, error, handleSubmit } = useForm({ onSubmit });
+
+  let navigate = useNavigate();
+
+  let dispatch = useDispatch();
+
+  function onSubmit(name) {
+    dispatch(setOwerRol());
+    navigate(`/game/${name}`);
+  }
 
   return (
     <form className="create-game-form" onSubmit={handleSubmit}>

@@ -1,5 +1,5 @@
 import FichaPoker from "../atoms/FichaPoker";
-import "../../styles/organisms/Header.css";
+import "../../styles/organisms/HeaderHome.css";
 
 const Header = () => {
   return (

@@ -1,0 +1,64 @@
+.header-table-screen {
+  display: grid;
+  grid-template-columns: 25% 1fr 25%;
+  align-items: center;
+  padding: 0 0.8rem 0;
+  height: 6rem;
+}
+
+.header-table-screen svg {
+  height: clamp(2.5rem, 8vw, 4rem);
+}
+
+h1 {
+  text-align: center;
+  font-size: clamp(1.2rem, 6vw, 2rem);
+}
+
+.menu-table-screen {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.4rem;
+}
+
+.user-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: #bdbdff;
+  color: #330072;
+  font-weight: bold;
+  border-radius: 50%;
+  font-size: 1.2rem;
+}
+
+.invite-players-btn {
+  background-color: transparent;
+  border: 1px solid white;
+  border-radius: 12px;
+  padding: 0.4rem 0.8rem;
+  text-wrap: nowrap;
+  color: #ffffff;
+  display: none;
+}
+
+@media (min-width: 479px) {
+  .header-table-screen {
+    padding: 1rem 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .header-table-screen {
+    padding: 1rem 3rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .header-table-screen {
+    padding: 2rem 3rem;
+  }
+}

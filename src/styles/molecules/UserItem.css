@@ -1,0 +1,14 @@
+.user-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-size: 0.8rem;
+  height: auto;
+}
+
+.card-on-table {
+  width: clamp(2rem, 10vw, 2rem);
+  height: clamp(2.8rem, 10vw, 3rem);
+  border: 1px solid #bb65ff;
+  border-radius: 10px;
+}

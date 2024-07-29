@@ -5,11 +5,13 @@
   max-width: 300px;
   margin: 0 auto;
   border-radius: 8px;
+  font-size: 14px;
 }
 
 .roles-container {
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
   margin-top: 0.6rem;
 }
 
