@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
 :root {
   --background-color: #1e1235;
 }
@@ -8,12 +10,19 @@
 }
 
 body {
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   color: #ffffff;
-  /* background: radial-gradient(ellipse 70% 90% at center, #6429cd, #3a1f6d, 40%); */
-  background: radial-gradient(ellipse at center, #5328a3 20%, #3a1f6d 70%);
+  background: radial-gradient(50% 50% at 50% 50%, #330072 0%, rgb(31, 13, 63));
   min-height: 100vh;
+  font-family: "Poppins", sans-serif;
+  font-size: 26px;
+  font-style: normal;
+  line-height: 100%;
 }
+
+h1 {
+  font-weight: 700;
+}
+
 header {
   position: fixed;
   display: flex;
@@ -38,7 +47,9 @@ img {
 
 button {
   border: none;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
   background: none;
   cursor: pointer;
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import FichaPoker from "../atoms/FichaPoker";
+import UserLogo from "../atoms/UserLogo";
 import { useSelector } from "react-redux";
 import "../../styles/organisms/HeaderTableScreen.css";
 
@@ -12,7 +13,7 @@ const HeaderTableScreen = () => {
       <FichaPoker />
       <h1>{gameName}</h1>
       <div className="menu-table-screen">
-        <p className="user-logo">{name[0] || "-"}</p>
+        <UserLogo name={name} />
         <button className="invite-players-btn">Invitar jugadores</button>
       </div>
     </header>

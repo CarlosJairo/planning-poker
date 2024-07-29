@@ -23,17 +23,16 @@ h1 {
 }
 
 .user-logo {
-  display: grid;
-  place-items: center;
-  height: clamp(2rem, 6vw, 3.5rem);
-  width: clamp(2rem, 6vw, 3.5rem);
-  width: 2.2rem;
-  height: 2.2rem;
-  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
   background-color: #bdbdff;
   color: #330072;
+  font-weight: bold;
   border-radius: 50%;
-  text-transform: uppercase;
+  font-size: 1.2rem;
 }
 
 .invite-players-btn {

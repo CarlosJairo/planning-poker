@@ -14,9 +14,9 @@ export const gameSlice = createSlice({
   initialState,
   reducers: {
     createGame(state, action) {
-      console.log(action);
       state.gameName = action.payload.gameName;
       state.state = "started";
+      state.admins = [...state.admins, action.payload.player];
       state.players = [...state.players, action.payload.player];
       state.selectCards = [];
       state.poolCards = action.payload.poolCards || [1, 2, 3, 5, 8, 13, 21];

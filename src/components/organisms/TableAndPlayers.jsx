@@ -1,13 +1,15 @@
-import "../../styles/organisms/TableAndPlayers.css";
 import Table from "../atoms/Table";
+import AdminTable from "../molecules/AdminTable";
 import UserItem from "../molecules/UserItem";
-
-const users = [];
+import "../../styles/organisms/TableAndPlayers.css";
+import CurrentUserTable from "../atoms/CurrentUserTable";
 
 const TableAndPlayers = () => {
   return (
     <section className="table-and-players">
-      <div className="admin">Admin</div>
+      <AdminTable />
+      <CurrentUserTable />
+
       <div className="tableLocker">
         <Table />
       </div>
@@ -20,7 +22,6 @@ const TableAndPlayers = () => {
       <div className="user3">
         <UserItem />
       </div>
-      <div className="currentUser">usuario</div>
       <div className="user5">
         <UserItem />
       </div>
