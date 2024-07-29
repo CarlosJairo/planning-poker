@@ -44,3 +44,21 @@ h1 {
   color: #ffffff;
   display: none;
 }
+
+@media (min-width: 479px) {
+  .header-table-screen {
+    padding: 1rem 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .header-table-screen {
+    padding: 1rem 3rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .header-table-screen {
+    padding: 2rem 3rem;
+  }
+}

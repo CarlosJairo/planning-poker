@@ -11,8 +11,8 @@
   gap: 0.4rem 0;
   width: 90%;
   max-width: 300px;
-  height: 100%;
-  padding-top: 6rem;
+  height: 90%;
+  padding-top: 5rem;
   margin: auto;
 }
 
@@ -58,6 +58,7 @@
 .currentUser {
   grid-area: currentUser;
   text-align: center;
+  padding-top: 0.2rem;
 }
 
 .user5 {
@@ -97,5 +98,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  .currentUser {
+    justify-content: center;
+    align-items: center;
+    padding-top: 0;
   }
 }

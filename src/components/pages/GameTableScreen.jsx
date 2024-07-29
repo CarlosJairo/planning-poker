@@ -17,7 +17,6 @@ const GameTableScreen = () => {
       {showModal && <Modal setShowModal={setShowModal} />}
       <HeaderTableScreen />
       <TableAndPlayers />
-
       <SelectableCardContainer />
     </div>
   );
