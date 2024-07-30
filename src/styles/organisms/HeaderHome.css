@@ -13,10 +13,6 @@
   gap: 1rem;
 }
 
-.logo-subtitulo-ctn svg {
-  width: clamp(3rem, 5vw, 20rem);
-}
-
 @media (min-width: 479px) {
   .header-home {
     padding: 3rem 2rem;

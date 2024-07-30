@@ -2,10 +2,10 @@
   display: grid;
   grid-template-columns: 1fr 55% 1fr;
   grid-template-areas:
-    "admin admin admin"
-    "user7 tableLocker user1"
-    "user6 tableLocker user2"
-    "user5 tableLocker user3"
+    "user0 user0 user0"
+    "user6 tableLocker user1"
+    "user5 tableLocker user2"
+    "user4 tableLocker user3"
     "currentUser currentUser currentUser";
   grid-template-rows: repeat(5, auto);
   gap: 0.4rem 0;
@@ -22,16 +22,16 @@
   justify-content: center;
 }
 
-.admin {
+.user0 {
   display: flex;
   flex-direction: column;
   gap: 0.2rem;
   font-size: 0.8rem;
-  grid-area: admin;
+  grid-area: user0;
   text-align: center;
 }
 
-.tableLocker {
+.table-locker {
   grid-area: tableLocker;
   text-align: center;
   grid-row: 2 / span 3;
@@ -41,6 +41,7 @@
   grid-area: user1;
   text-align: center;
   justify-content: flex-end;
+  align-items: center;
 }
 
 .user2 {
@@ -61,6 +62,12 @@
   padding-top: 0.2rem;
 }
 
+.user4 {
+  grid-area: user4;
+  text-align: center;
+  justify-content: flex-start;
+}
+
 .user5 {
   grid-area: user5;
   text-align: center;
@@ -73,24 +80,18 @@
   justify-content: flex-start;
 }
 
-.user7 {
-  grid-area: user7;
-  text-align: center;
-  justify-content: flex-start;
-}
-
 @media (min-width: 479px) {
   .table-and-players {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 50% 1fr;
     grid-template-areas:
-      "user6 user7 admin user1 user2"
-      "user6 tableLocker tableLocker tableLocker user2"
-      "user6 user5 currentUser user3 user2";
+      "user5 user6 user0 user1 user2"
+      "user5 tableLocker tableLocker tableLocker user2"
+      "user5 user4 currentUser user3 user2";
     max-width: 700px;
   }
 
-  .tableLocker {
+  .table-locker {
     grid-row: 2 / span 1;
   }
 

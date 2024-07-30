@@ -3,7 +3,14 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   gameName: "",
   state: "no started",
-  players: [],
+  players: [
+    { id: "2", name: "Santi", rol: ["player"], voted: false },
+    { id: "1", name: "Laura", rol: ["viwer"], voted: false },
+    { id: "3", name: "Carlos", rol: ["player"], voted: false },
+    { id: "4", name: "Tomas", rol: ["viwer"], voted: true },
+    { id: "5", name: "Andrés", rol: ["player"], voted: false },
+    { id: "6", name: "Camilo", rol: ["player"], voted: true },
+  ],
   admins: [],
   selectCards: [],
   poolCards: [1, 2, 3, 5, 8, 13, 21],
