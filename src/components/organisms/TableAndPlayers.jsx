@@ -27,7 +27,7 @@ const TableAndPlayers = () => {
 
   return (
     <section className="table-and-players">
-      <AdminTable />
+      {/* <AdminTable /> */}
       <CurrentUserTable />
 
       <Locker className="table-locker">
@@ -36,7 +36,7 @@ const TableAndPlayers = () => {
 
       {filteredPlayers &&
         filteredPlayers.map((user, index) => (
-          <Locker className={`user${index + 1}`} key={index}>
+          <Locker className={`user${index}`} key={index}>
             <UserItem user={user} key={user.id * 10} />
           </Locker>
         ))}

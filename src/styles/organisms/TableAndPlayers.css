@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: 1fr 55% 1fr;
   grid-template-areas:
-    "admin admin admin"
+    "user0 user0 user0"
     "user6 tableLocker user1"
     "user5 tableLocker user2"
     "user4 tableLocker user3"
@@ -22,12 +22,12 @@
   justify-content: center;
 }
 
-.admin {
+.user0 {
   display: flex;
   flex-direction: column;
   gap: 0.2rem;
   font-size: 0.8rem;
-  grid-area: admin;
+  grid-area: user0;
   text-align: center;
 }
 
@@ -85,7 +85,7 @@
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 50% 1fr;
     grid-template-areas:
-      "user5 user6 admin user1 user2"
+      "user5 user6 user0 user1 user2"
       "user5 tableLocker tableLocker tableLocker user2"
       "user5 user4 currentUser user3 user2";
     max-width: 700px;
