@@ -4,7 +4,7 @@ import UserItem from "../molecules/UserItem";
 import "../../styles/organisms/TableAndPlayers.css";
 import CurrentUserTable from "../atoms/CurrentUserTable";
 import Locker from "../molecules/Locker";
-import { useState } from "react";
+import { useSelector } from "react-redux";
 
 const initialUsers = [
   { id: "1", name: "name 1", rol: ["player"] },
@@ -16,7 +16,14 @@ const initialUsers = [
 ];
 
 const TableAndPlayers = () => {
-  const [users, setUsers] = useState(initialUsers);
+  const { players } = useSelector((state) => state.game);
+  const currenUser = useSelector((state) => state.user);
+
+  // Filtrar solo otros jugadores
+  const filterPlayers = (players) =>
+    players.filter((player) => player.id !== currenUser.id);
+
+  const filteredPlayers = filterPlayers(players);
 
   return (
     <section className="table-and-players">
@@ -27,8 +34,8 @@ const TableAndPlayers = () => {
         <Table />
       </Locker>
 
-      {users &&
-        users.map((user, index) => (
+      {filteredPlayers &&
+        filteredPlayers.map((user, index) => (
           <Locker className={`user${index + 1}`} key={index}>
             <UserItem user={user} key={user.id * 10} />
           </Locker>

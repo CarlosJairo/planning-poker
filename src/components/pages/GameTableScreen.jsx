@@ -8,9 +8,9 @@ import SelectableCardContainer from "../organisms/SelectableCardContainer";
 const GameTableScreen = () => {
   const [showModal, setShowModal] = useState(true);
 
-  useEffect(() => {
-    setShowModal(true);
-  }, []);
+  // useEffect(() => {
+  //   setShowModal(true);
+  // }, []);
 
   return (
     <div className="game-table-screen">
