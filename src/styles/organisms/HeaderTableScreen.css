@@ -1,9 +1,8 @@
 .header-table-screen {
   display: grid;
-  grid-template-columns: 25% 1fr 25%;
+  grid-template-columns: 30% 1fr 30%;
   align-items: center;
   padding: 0 0.8rem 0;
-  /* padding: 3rem 1rem; */
   height: 6rem;
 }
 
@@ -14,16 +13,16 @@ h1 {
 
 .menu-table-screen {
   display: flex;
+  flex-direction: row-reverse;
   align-items: center;
-  justify-content: flex-end;
-  gap: 1.5vw;
+  gap: 1vw;
 }
 
 .user-logo {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 2.5rem;
+  min-width: 2.5rem;
   height: 2.5rem;
   background-color: #bdbdff;
   color: #330072;
@@ -37,13 +36,15 @@ h1 {
   align-items: center;
   justify-content: center;
   background-color: transparent;
-  border: 1px solid white;
-  border-radius: 1.5rem;
-  width: 2.5rem;
-  height: 2.5rem;
-  text-wrap: nowrap;
+  /* height: 2.5rem; */
   color: #f6f7fc;
+  /* padding: 0.2rem 2rem; */
   font-size: 14px;
+  transition: box-shadow 0.2s linear;
+}
+
+.invite-players-btn:hover {
+  box-shadow: 0 0 1.3rem #f6f7fcad, 0 0 1.3rem #f6f7fca6 inset;
 }
 
 .invite-player-text {
@@ -60,24 +61,34 @@ h1 {
   .header-table-screen {
     padding: 1rem 2rem;
   }
+  .menu-table-screen {
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+  .invite-players-btn {
+    width: auto;
+    padding: 0.3rem 0.6rem;
+    /* height: 2rem; */
+    font-weight: 500;
+    border: 1px solid white;
+    border-radius: 1.5rem;
+  }
+
+  .invite-player-text {
+    display: flex;
+    text-wrap: wrap;
+  }
+
+  .user-plus {
+    fill: #f6f7fc;
+    display: none;
+  }
 }
 
 @media (min-width: 1024px) {
   .header-table-screen {
     padding: 1rem 3rem;
-  }
-  .invite-players-btn {
-    width: auto;
-    padding: 0.3rem 0.6rem;
-    height: 2rem;
-    font-weight: 500;
-  }
-  .invite-player-text {
-    display: flex;
-  }
-  .user-plus {
-    fill: #f6f7fc;
-    display: none;
   }
 }
 
