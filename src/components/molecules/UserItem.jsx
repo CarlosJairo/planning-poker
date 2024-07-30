@@ -1,9 +1,15 @@
 import "../../styles/molecules/UserItem.css";
+import CardOnTable from "../atoms/CardOnTable";
+import UserLogo from "../atoms/UserLogo";
 
 const UserItem = ({ user }) => {
+  const { name, voted, rol } = user;
+
+  const isViwer = rol.includes("viwer");
+
   return (
     <div className={`user-item`}>
-      <div className={`card-on-table ${user.voted ? "selected" : null}`}></div>
+      {isViwer ? <UserLogo name={name} /> : <CardOnTable voted={voted} />}
 
       <p>{user.name}</p>
     </div>

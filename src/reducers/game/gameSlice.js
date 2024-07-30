@@ -5,7 +5,7 @@ const initialState = {
   state: "no started",
   players: [
     { id: "2", name: "Santi", rol: ["player"], voted: false },
-    { id: "1", name: "Laura", rol: ["player"], voted: true },
+    { id: "1", name: "Laura", rol: ["viwer"], voted: false },
     { id: "3", name: "Carlos", rol: ["player"], voted: false },
     { id: "4", name: "Tomas", rol: ["viwer"], voted: true },
     { id: "5", name: "Andrés", rol: ["player"], voted: false },
