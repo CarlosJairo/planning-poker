@@ -1,6 +1,7 @@
 import React from "react";
+import "../../styles/atoms/ChipPoker.css";
 
-const FichaPoker = () => {
+const FichaPoker = ({ className }) => {
   return (
     <svg
       width="60"
@@ -8,6 +9,7 @@ const FichaPoker = () => {
       viewBox="0 0 60 60"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className={className ? className : null}
     >
       <g clipPath="url(#clip0_60_857)">
         <path

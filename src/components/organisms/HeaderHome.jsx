@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <header className="header-home">
       <div className="logo-subtitulo-ctn">
-        <FichaPoker />
+        <FichaPoker className={"chip-poker"} />
         <h2>Crear partida</h2>
       </div>
     </header>

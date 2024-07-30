@@ -1,11 +1,10 @@
 import "../../styles/molecules/UserItem.css";
 
-const UserItem = () => {
+const UserItem = ({ user }) => {
   return (
-    <div className="user-item">
-      {/* <Button className={"card"} onClick={handleClick} /> */}
-      <div className="card-on-table"></div>
-      <p>User</p>
+    <div className={`user-item`}>
+      <div className="card-on-table selected"></div>
+      <p>{user.name}</p>
     </div>
   );
 };

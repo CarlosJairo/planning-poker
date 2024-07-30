@@ -5,7 +5,7 @@ const CurrentUserTable = () => {
 
   return (
     <div className="currentUser user-item">
-      <button className="card-on-table"></button>
+      <button className="card-on-table selected"></button>
       {name && name}
     </div>
   );
