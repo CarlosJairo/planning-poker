@@ -1,3 +1,5 @@
+import React from "react";
+
 const CardOnTable = ({ voted, isFinised }) => {
   return (
     <div
