@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import React, { useCallback, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectCard } from "../../reducers/game/gameSlice";
 import { voteCard } from "../../reducers/user/userSlice";
