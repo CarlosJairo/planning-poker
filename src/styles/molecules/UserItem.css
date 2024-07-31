@@ -8,6 +8,11 @@
 }
 
 .card-on-table {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
   width: clamp(2rem, 10vw, 2rem);
   height: clamp(2.8rem, 10vw, 3rem);
   border: 1px solid #bb65ff;

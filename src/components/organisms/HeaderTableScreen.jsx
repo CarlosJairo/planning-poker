@@ -2,8 +2,8 @@ import React from "react";
 import FichaPoker from "../atoms/FichaPoker";
 import UserLogo from "../atoms/UserLogo";
 import { useSelector } from "react-redux";
-import "../../styles/organisms/HeaderTableScreen.css";
 import UserPlus from "../atoms/UserPlus";
+import "../../styles/organisms/HeaderTableScreen.css";
 
 const HeaderTableScreen = () => {
   const { gameName } = useSelector((state) => state.game);

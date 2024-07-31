@@ -4,6 +4,7 @@ const initialState = {
   id: "",
   name: "",
   rolCurrentUser: [],
+  voted: false,
 };
 
 const userSlice = createSlice({
@@ -13,12 +14,15 @@ const userSlice = createSlice({
     setOwerRol: (state) => {
       state.rolCurrentUser = [...state.rolCurrentUser, "owner"];
     },
-    setCurrentUser(state, action) {
+    setCurrentUser: (state, action) => {
       state.id = action.payload.id;
       state.name = action.payload.name;
-      state.rolCurrentUser = [action.payload.rol];
+      state.rolCurrentUser = action.payload.rol;
     },
-    clearUsuarioActual(state) {
+    voteCard: (state) => {
+      state.voted = true;
+    },
+    clearUsuarioActual: (state) => {
       state.id = "";
       state.name = "";
       state.rolCurrentUser = [];
@@ -26,7 +30,7 @@ const userSlice = createSlice({
   },
 });
 
-export const { setOwerRol, setCurrentUser, clearUsuarioActual } =
+export const { setOwerRol, setCurrentUser, clearUsuarioActual, voteCard } =
   userSlice.actions;
 
 export default userSlice.reducer;
