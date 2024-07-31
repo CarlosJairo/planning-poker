@@ -17,7 +17,8 @@ const SelectableCardContainer = () => {
   const sendCard = useCallback(
     (card) => {
       dispatch(selectCard(card));
-      dispatch(voteCard());
+      dispatch(voteCard(card));
+      // Desactivar los clicks
       setDisabledCards(true);
     },
     [dispatch]

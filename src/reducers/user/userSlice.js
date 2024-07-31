@@ -4,7 +4,7 @@ const initialState = {
   id: "",
   name: "",
   rolCurrentUser: [],
-  voted: { id: "01", str: "0", value: 0 },
+  voted: false,
 };
 
 const userSlice = createSlice({
@@ -19,8 +19,8 @@ const userSlice = createSlice({
       state.name = action.payload.name;
       state.rolCurrentUser = action.payload.rol;
     },
-    voteCard: (state) => {
-      state.voted = true;
+    voteCard: (state, action) => {
+      state.voted = action.payload;
     },
     clearUsuarioActual: (state) => {
       state.id = "";
