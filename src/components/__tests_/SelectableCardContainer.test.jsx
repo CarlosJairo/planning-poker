@@ -80,7 +80,7 @@ describe("SelectableCardContainer component", () => {
     expect(container.querySelector(".cards")).toHaveClass("disabled");
   });
 
-  it('Mostar "No hay cartas" si no hay cartas', () => {
+  it('Mostar "No hay cartas" si no hay cartasg', () => {
     store = mockStore({
       game: { poolCards: null },
       user: { rolCurrentUser: ["player"] },
