@@ -1,4 +1,4 @@
-import Table from "../atoms/Table";
+import Table from "../molecules/Table";
 import UserItem from "../molecules/UserItem";
 import Locker from "../molecules/Locker";
 import { useSelector } from "react-redux";
@@ -22,7 +22,7 @@ const TableAndPlayers = () => {
       </Locker>
 
       <Locker className="table-locker">
-        <Table />
+        <Table roles={currentUser.rolCurrentUser} />
       </Locker>
 
       {filteredPlayers &&

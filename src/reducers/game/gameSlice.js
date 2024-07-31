@@ -4,12 +4,22 @@ const initialState = {
   gameName: "",
   state: "no started",
   players: [
-    { id: "2", name: "Santi", rol: ["player"], voted: false },
+    {
+      id: "2",
+      name: "Santi",
+      rol: ["player"],
+      voted: { id: "01", str: "0", value: 0 },
+    },
     { id: "1", name: "Laura", rol: ["viwer"], voted: false },
     { id: "3", name: "Carlos", rol: ["player"], voted: false },
-    { id: "4", name: "Tomas", rol: ["viwer"], voted: true },
+    { id: "4", name: "Tomas", rol: ["viwer"], voted: false },
     { id: "5", name: "Andrés", rol: ["player"], voted: false },
-    { id: "6", name: "Camilo", rol: ["player"], voted: true },
+    {
+      id: "6",
+      name: "Camilo",
+      rol: ["player"],
+      voted: { id: "01", str: "0", value: 0 },
+    },
   ],
   admins: [],
   selectedCards: [],
@@ -50,6 +60,9 @@ export const gameSlice = createSlice({
         ),
       ];
     },
+    gameToFinish: (state) => {
+      state.state = "finished";
+    },
     agregarJugador: (state, action) => {
       state.players.push(action.payload);
       if (action.payload.rol === "owner") {
@@ -78,6 +91,7 @@ export const {
   revelarCartas,
   reiniciarPartida,
   cambiarModoDePuntaje,
+  gameToFinish,
 } = gameSlice.actions;
 
 export default gameSlice.reducer;

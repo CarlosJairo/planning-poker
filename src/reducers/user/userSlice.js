@@ -4,7 +4,7 @@ const initialState = {
   id: "",
   name: "",
   rolCurrentUser: [],
-  voted: false,
+  voted: { id: "01", str: "0", value: 0 },
 };
 
 const userSlice = createSlice({
