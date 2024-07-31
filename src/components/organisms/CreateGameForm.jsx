@@ -4,10 +4,9 @@ import Label from "../atoms/Label";
 import ButtonSubmit from "../atoms/ButtonSubmit";
 import useForm from "../../hooks/useForm";
 import { useNavigate } from "react-router-dom";
-
-import "../../styles/organisms/CreateGameForm.css";
 import { useDispatch } from "react-redux";
 import { setOwerRol } from "../../reducers/user/userSlice";
+import "../../styles/organisms/CreateGameForm.css";
 
 const CreateGameForm = () => {
   const { name, setName, error, handleSubmit } = useForm({ onSubmit });
@@ -17,6 +16,7 @@ const CreateGameForm = () => {
   let dispatch = useDispatch();
 
   function onSubmit(name) {
+    // Agregamos el rol propietario (owner) al que creó la partida
     dispatch(setOwerRol());
     navigate(`/game/${name}`);
   }

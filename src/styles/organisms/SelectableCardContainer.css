@@ -3,10 +3,14 @@
   text-align: center;
   grid-template-rows: 1fr 80%;
   grid-template-columns: 1fr;
-  align-items: center;
-  justify-content: flex-start;
   width: 100%;
+  height: 20%;
   font-size: 21px;
+}
+
+.selectable-card-container.none {
+  opacity: 0;
+  visibility: hidden;
 }
 
 .cards {
@@ -18,6 +22,15 @@
   overflow-x: auto;
   white-space: nowrap;
   scrollbar-width: none;
+}
+
+.cards.disabled > .card {
+  pointer-events: none;
+}
+
+/* No hay cartas */
+.cards > p {
+  width: 100%;
 }
 
 .card {
@@ -47,7 +60,7 @@
   background-color: #e4a4ff;
   color: #330072;
   transform: translateY(-0.25rem);
-  box-shadow: 0 0 1rem #bc65ff9f;
+  box-shadow: 0 0 0.8rem #bc65ffab;
 }
 
 @media (min-width: 479px) {

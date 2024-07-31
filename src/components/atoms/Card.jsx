@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 
-const Card = ({ children, onClick, className }) => {
+const Card = ({ children, onClick, className, card }) => {
   const [isSelected, setIsSelecet] = useState(false);
 
   const handleClick = () => {
+    // Controlar el estilo de la card
     setIsSelecet(!isSelected);
-    onClick();
+    onClick(card);
   };
 
   return (

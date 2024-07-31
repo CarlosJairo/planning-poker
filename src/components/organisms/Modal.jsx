@@ -1,6 +1,6 @@
 import React from "react";
-import "../../styles/organisms/Modal.css";
 import UserForm from "./FormUser";
+import "../../styles/organisms/Modal.css";
 
 const Modal = ({ isOpen, setShowModal }) => {
   return (

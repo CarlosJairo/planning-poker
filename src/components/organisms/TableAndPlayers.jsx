@@ -1,23 +1,24 @@
 import Table from "../atoms/Table";
 import UserItem from "../molecules/UserItem";
-import CurrentUserTable from "../atoms/CurrentUserTable";
 import Locker from "../molecules/Locker";
 import { useSelector } from "react-redux";
 import "../../styles/organisms/TableAndPlayers.css";
 
 const TableAndPlayers = () => {
   const { players } = useSelector((state) => state.game);
-  const currenUser = useSelector((state) => state.user);
+  const currentUser = useSelector((state) => state.user);
 
-  // Filtrar solo otros jugadores
+  // Filtrar solo otros jugadores - evitar que aparezca nuevamente el usuario actual que ya tiene su lugar
   const filterPlayers = (players) =>
-    players.filter((player) => player.id !== currenUser.id);
+    players.filter((player) => player.id !== currentUser.id);
 
   const filteredPlayers = filterPlayers(players);
 
   return (
     <section className="table-and-players">
-      <CurrentUserTable />
+      <Locker className={"currentUser user-item"}>
+        <UserItem user={currentUser} />
+      </Locker>
 
       <Locker className="table-locker">
         <Table />

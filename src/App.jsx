@@ -2,8 +2,8 @@ import { useState } from "react";
 import { Routes, HashRouter, Route } from "react-router-dom";
 import CreateGameScreen from "./components/pages/CreateGameScreen";
 import GameTableScreen from "./components/pages/GameTableScreen";
-import "./App.css";
 import SplashScreen from "./components/pages/SplashScreen";
+import "./App.css";
 
 function App() {
   const [showSplashScreen, setShowSplashScreen] = useState(true);

@@ -3,12 +3,12 @@ import ButtonSubmit from "../atoms/ButtonSubmit";
 import Input from "../atoms/InputText";
 import Label from "../atoms/Label";
 import InputRadio from "../atoms/InputRadio";
-import "../../styles/organisms/FormUser.css";
 import useForm from "../../hooks/useForm";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setCurrentUser } from "../../reducers/user/userSlice";
 import { createGame } from "../../reducers/game/gameSlice";
+import "../../styles/organisms/FormUser.css";
 
 const UserForm = ({ setShowModal }) => {
   const { name, setName, error, handleSubmit } = useForm({ onSubmit });
@@ -21,6 +21,7 @@ const UserForm = ({ setShowModal }) => {
   const isOwner = rolCurrentUser.includes("owner");
 
   const dispatch = useDispatch();
+
   const generateUniqueId = () => new Date().getTime().toString();
 
   function onSubmit() {
