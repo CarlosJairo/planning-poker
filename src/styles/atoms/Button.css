@@ -15,3 +15,17 @@
 .btn-on-table:hover {
   box-shadow: 0 0 0.8rem #bc65ffab;
 }
+
+.copy-link {
+  padding: 0.5rem 1rem;
+  color: #000000;
+  background-color: #eeecec;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+}
+
+.copy-link:hover {
+  box-shadow: 0 0 1.3rem #f6f7fcad, 0 0 1.3rem #f6f7fca6 inset;
+}
