@@ -3,10 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   changeStateGame,
   countCardsAndAverage,
+  restartGame,
 } from "../../reducers/game/gameSlice";
 import GameButton from "./ButtonOnTable";
 import "../../styles/atoms/Table.css";
 import LouderTable from "./LouderTable";
+import { resetVoted } from "../../reducers/user/userSlice";
 
 export const Table = ({ roles }) => {
   const [loading, setLoading] = useState(false);
@@ -26,9 +28,9 @@ export const Table = ({ roles }) => {
     }, 2000);
   };
 
-  const restartGame = () => {
-    dispatch(changeStateGame("finished"));
-    console.log("reset");
+  const handleRestartGame = () => {
+    dispatch(restartGame());
+    dispatch(resetVoted());
   };
 
   return (
@@ -40,7 +42,7 @@ export const Table = ({ roles }) => {
         isOwner={isOwner}
         loading={loading}
         showCards={showCards}
-        restartGame={restartGame}
+        restartGame={handleRestartGame}
       />
     </div>
   );

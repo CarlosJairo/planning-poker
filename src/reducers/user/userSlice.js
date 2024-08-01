@@ -22,6 +22,9 @@ const userSlice = createSlice({
     voteCard: (state, action) => {
       state.voted = action.payload;
     },
+    resetVoted: (state) => {
+      state.voted = false;
+    },
     clearUsuarioActual: (state) => {
       state.id = "";
       state.name = "";
@@ -30,7 +33,12 @@ const userSlice = createSlice({
   },
 });
 
-export const { setOwerRol, setCurrentUser, clearUsuarioActual, voteCard } =
-  userSlice.actions;
+export const {
+  setOwerRol,
+  setCurrentUser,
+  clearUsuarioActual,
+  voteCard,
+  resetVoted,
+} = userSlice.actions;
 
 export default userSlice.reducer;
