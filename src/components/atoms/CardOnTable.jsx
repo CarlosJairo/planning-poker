@@ -1,10 +1,16 @@
-const CardOnTable = ({ voted, isFinised }) => {
+import React from "react";
+
+const CardOnTable = ({ voted, revealedCards }) => {
   return (
-    <div
-      className={`card-on-table ${voted && "selected"} ${isFinised && "show"}`}
-    >
-      {isFinised && voted.str}
-    </div>
+    <>
+      <div
+        className={`card-on-table ${voted && "selected"} ${
+          revealedCards && "show"
+        }`}
+      >
+        {revealedCards && voted.str}
+      </div>
+    </>
   );
 };
 

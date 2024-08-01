@@ -19,8 +19,8 @@ const userSlice = createSlice({
       state.name = action.payload.name;
       state.rolCurrentUser = action.payload.rol;
     },
-    voteCard: (state) => {
-      state.voted = true;
+    voteCard: (state, action) => {
+      state.voted = action.payload;
     },
     clearUsuarioActual: (state) => {
       state.id = "";

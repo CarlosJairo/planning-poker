@@ -1,0 +1,17 @@
+.btn-on-table {
+  padding: 0.3rem 2vw;
+  max-width: 230px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: #ffffff;
+  border-radius: 50px;
+  background-color: #6429cd;
+  font-size: clamp(0.8rem, 2vw, 1.1rem);
+  cursor: pointer;
+  transition: box-shadow 0.2s linear;
+}
+
+.btn-on-table:hover {
+  box-shadow: 0 0 0.8rem #bc65ffab;
+}

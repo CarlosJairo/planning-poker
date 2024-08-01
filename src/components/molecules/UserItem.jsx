@@ -1,3 +1,4 @@
+import React from "react";
 import CardOnTable from "../atoms/CardOnTable";
 import UserLogo from "../atoms/UserLogo";
 import { useSelector } from "react-redux";
@@ -8,7 +9,7 @@ const UserItem = ({ user }) => {
   const { name, voted, rol, rolCurrentUser } = user;
 
   const { state } = useSelector((state) => state.game);
-  const isFinised = state === "finished";
+  const revealedCards = state === "revealed_cards" || state === "finished";
 
   const userRole = rol || rolCurrentUser;
   const isViwer = userRole.includes("viwer");
@@ -18,7 +19,7 @@ const UserItem = ({ user }) => {
       {isViwer ? (
         <UserLogo name={name} />
       ) : (
-        <CardOnTable voted={voted} isFinised={isFinised} />
+        <CardOnTable voted={voted} revealedCards={revealedCards} />
       )}
 
       <p>{user.name}</p>

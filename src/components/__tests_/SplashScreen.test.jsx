@@ -42,6 +42,6 @@ describe("SplashScreen", () => {
         expect(setShowSplashScreen).toHaveBeenCalledWith(false);
       },
       { timeout: 2100 }
-    ); // Timeout un poco mayor que el temporizador para asegurarse de que la espera es suficiente
+    );
   });
 });
