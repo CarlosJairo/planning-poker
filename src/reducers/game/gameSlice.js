@@ -105,8 +105,6 @@ export const gameSlice = createSlice({
       state.results = { count: Object.values(count), avarage: averageValues };
     },
     restartGame: (state) => {
-      console.log("hol");
-
       state.state = "started";
       state.selectedCards = [];
       state.results = { count: [], avarage: 0 };
