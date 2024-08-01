@@ -93,6 +93,7 @@
 
   .table-locker {
     grid-row: 2 / span 1;
+    min-width: 290px;
   }
 
   .table-and-players > * {

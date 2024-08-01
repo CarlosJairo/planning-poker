@@ -1,4 +1,4 @@
-.show-cards-btn {
+.btn-on-table {
   padding: 0.3rem 2vw;
   max-width: 230px;
   justify-content: center;
@@ -12,6 +12,6 @@
   transition: box-shadow 0.2s linear;
 }
 
-.show-cards-btn:hover {
+.btn-on-table:hover {
   box-shadow: 0 0 0.8rem #bc65ffab;
 }

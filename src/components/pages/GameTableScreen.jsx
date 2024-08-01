@@ -1,20 +1,27 @@
-import React, { useState, useEffect } from "react";
-import "../../styles/pages/GameTableScreen.css";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import Modal from "../organisms/Modal";
 import HeaderTableScreen from "../organisms/HeaderTableScreen";
 import TableAndPlayers from "../organisms/TableAndPlayers";
 import SelectableCardContainer from "../organisms/SelectableCardContainer";
+import CardResultsCtn from "../organisms/CardResultsCtn";
+import "../../styles/pages/GameTableScreen.css";
 
 const GameTableScreen = () => {
   const [showModal, setShowModal] = useState(true);
+  const { poolCards, state } = useSelector((state) => state.game);
 
   return (
-    <div className="game-table-screen">
+    <section className="game-table-screen">
       {showModal && <Modal setShowModal={setShowModal} />}
       <HeaderTableScreen />
       <TableAndPlayers />
-      <SelectableCardContainer />
-    </div>
+      {state === "revealed_cards" ? (
+        <CardResultsCtn />
+      ) : (
+        <SelectableCardContainer poolCards={poolCards} />
+      )}
+    </section>
   );
 };
 

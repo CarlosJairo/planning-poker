@@ -1,44 +1,48 @@
-import React, { useState, useEffect } from "react";
-import "../../styles/atoms/Table.css";
-import Button from "../atoms/Button";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { gameToFinish } from "../../reducers/game/gameSlice";
+import {
+  changeStateGame,
+  countCardsAndAverage,
+} from "../../reducers/game/gameSlice";
+import GameButton from "./ButtonOnTable";
+import "../../styles/atoms/Table.css";
+import LouderTable from "./LouderTable";
 
 const Table = ({ roles }) => {
   const [loading, setLoading] = useState(false);
-  const [everyoneVoted, setEveryoneVoted] = useState(false);
+  const { state } = useSelector((state) => state.game);
   const isOwner = roles.includes("owner");
-  const { selectedCards, players, state } = useSelector((state) => state.game);
 
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    if (isOwner) {
-      setEveryoneVoted(true);
-    }
-  }, [isOwner, players, selectedCards]);
-
   const showCards = () => {
+    // llamado a posible backend
     setLoading(true);
-    setEveryoneVoted(false);
 
     setTimeout(() => {
       setLoading(false);
-      dispatch(gameToFinish());
-    }, 300);
+      dispatch(changeStateGame("revealed_cards"));
+      dispatch(countCardsAndAverage());
+    }, 2000);
+  };
+
+  const restartGame = () => {
+    dispatch(changeStateGame("finished"));
+    console.log("reset");
+    // dispatch(changeStateGame("finished"));
   };
 
   return (
     <div className="table">
-      {loading && <p>Cargando...</p>}
-      {isOwner && everyoneVoted && !loading && (
-        <Button onClick={showCards} className={"show-cards-btn"}>
-          Revelar cartas
-        </Button>
-      )}
-      {state === "finished" && !loading && (
-        <button className={"show-results-btn"}>Mostrar resultados</button>
-      )}
+      {loading && <LouderTable />}
+
+      <GameButton
+        state={state}
+        isOwner={isOwner}
+        loading={loading}
+        showCards={showCards}
+        restartGame={restartGame}
+      />
     </div>
   );
 };
