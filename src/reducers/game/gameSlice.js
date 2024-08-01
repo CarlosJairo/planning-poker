@@ -50,20 +50,10 @@ export const gameSlice = createSlice({
   reducers: {
     createGame: (state, action) => {
       state.gameName = action.payload.gameName;
-      // state.state = "started";
       state.state = "started";
       state.admins = [...state.admins, action.payload.player];
       state.players = [...state.players, action.payload.player];
-      state.selectedCards = [
-        { id: "0", str: "0", value: 0 },
-        // { id: "2", str: "3", value: 3 },
-        // { id: "3", str: "5", value: 5 },
-        // { id: "5", str: "13", value: 13 },
-        // { id: "4", str: "13", value: 13 },
-        // { id: "6", str: "34", value: 34 },
-        // { id: "7", str: "55", value: 55 },
-        // { id: "8", str: "89", value: 89 },
-      ];
+      state.selectedCards = [{ id: "0", str: "0", value: 0 }];
     },
     selectCard: (state, action) => {
       state.selectedCards = [...state.selectedCards, action.payload];
@@ -115,20 +105,20 @@ export const gameSlice = createSlice({
       state.results = { count: Object.values(count), avarage: averageValues };
     },
 
-    agregarJugador: (state, action) => {
-      state.players.push(action.payload);
-      if (action.payload.rol === "owner") {
-        state.admins.push(action.payload.id);
-      }
-    },
-    reiniciarPartida: (state) => {
-      state.state = "no started";
-      state.selectedCards = [];
-    },
-    cambiarModoDePuntaje: (state, action) => {
-      state.poolCards = action.payload;
-      state.selectedCards = [];
-    },
+    // agregarJugador: (state, action) => {
+    //   state.players.push(action.payload);
+    //   if (action.payload.rol === "owner") {
+    //     state.admins.push(action.payload.id);
+    //   }
+    // },
+    // reiniciarPartida: (state) => {
+    //   state.state = "no started";
+    //   state.selectedCards = [];
+    // },
+    // cambiarModoDePuntaje: (state, action) => {
+    //   state.poolCards = action.payload;
+    //   state.selectedCards = [];
+    // },
   },
 });
 

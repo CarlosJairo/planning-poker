@@ -8,7 +8,7 @@ import GameButton from "./ButtonOnTable";
 import "../../styles/atoms/Table.css";
 import LouderTable from "./LouderTable";
 
-const Table = ({ roles }) => {
+export const Table = ({ roles }) => {
   const [loading, setLoading] = useState(false);
   const { state } = useSelector((state) => state.game);
   const isOwner = roles.includes("owner");
@@ -16,9 +16,9 @@ const Table = ({ roles }) => {
   const dispatch = useDispatch();
 
   const showCards = () => {
-    // llamado a posible backend
     setLoading(true);
 
+    // Llamada a posible api
     setTimeout(() => {
       setLoading(false);
       dispatch(changeStateGame("revealed_cards"));
@@ -29,7 +29,6 @@ const Table = ({ roles }) => {
   const restartGame = () => {
     dispatch(changeStateGame("finished"));
     console.log("reset");
-    // dispatch(changeStateGame("finished"));
   };
 
   return (

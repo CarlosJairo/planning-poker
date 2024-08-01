@@ -1,3 +1,4 @@
+import React from "react";
 import Louder from "../atoms/Louder";
 import "../../styles/molecules/LouderTable.css";
 

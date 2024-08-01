@@ -1,14 +1,7 @@
 import React from "react";
 import Button from "../atoms/Button";
 
-const GameButton = ({
-  state,
-  isOwner,
-  loading,
-  showCards,
-  showScore,
-  restartGame,
-}) => {
+const GameButton = ({ state, isOwner, loading, showCards, restartGame }) => {
   if (loading || !isOwner) return null;
 
   switch (state) {
@@ -18,16 +11,10 @@ const GameButton = ({
           Revelar cartas
         </Button>
       );
-    // case "revealed_cards":
-    //   return (
-    //     <Button onClick={showScore} className="btn-on-table">
-    //       Show Results
-    //     </Button>
-    //   );
     case "revealed_cards":
       return (
         <Button onClick={restartGame} className="btn-on-table">
-          Restart Game
+          Nueva votación
         </Button>
       );
     default:
