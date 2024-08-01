@@ -104,16 +104,18 @@ export const gameSlice = createSlice({
       // objet.values tranforma los valores del objeto a un array
       state.results = { count: Object.values(count), avarage: averageValues };
     },
+    restartGame: (state) => {
+      state.state = "started";
+      state.selectedCards = [];
+      state.results = { count: [], avarage: 0 };
+      state.players = state.players.map((p) => ({ ...p, voted: false }));
+    },
 
     // agregarJugador: (state, action) => {
     //   state.players.push(action.payload);
     //   if (action.payload.rol === "owner") {
     //     state.admins.push(action.payload.id);
     //   }
-    // },
-    // reiniciarPartida: (state) => {
-    //   state.state = "no started";
-    //   state.selectedCards = [];
     // },
     // cambiarModoDePuntaje: (state, action) => {
     //   state.poolCards = action.payload;
@@ -133,6 +135,7 @@ export const {
   changeStateGame,
   everyoneVoted,
   countCardsAndAverage,
+  restartGame,
 } = gameSlice.actions;
 
 export default gameSlice.reducer;

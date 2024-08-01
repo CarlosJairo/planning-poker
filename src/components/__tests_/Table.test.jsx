@@ -5,8 +5,10 @@ import { Table } from "../molecules/Table";
 import {
   changeStateGame,
   countCardsAndAverage,
+  restartGame,
 } from "../../reducers/game/gameSlice";
 import "@testing-library/jest-dom";
+import { resetVoted } from "../../reducers/user/userSlice";
 
 // Simulación de los hooks useDispatch y useSelector de react-redux
 jest.mock("react-redux", () => ({
@@ -18,6 +20,8 @@ jest.mock("react-redux", () => ({
 jest.mock("../../reducers/game/gameSlice", () => ({
   changeStateGame: jest.fn(),
   countCardsAndAverage: jest.fn(),
+  restartGame: jest.fn(),
+  resetVoted: jest.fn(),
 }));
 
 describe("Table component", () => {
@@ -53,6 +57,25 @@ describe("Table component", () => {
     );
     await waitFor(
       () => expect(mockDispatch).toHaveBeenCalledWith(countCardsAndAverage()),
+      { timeout: 3000 }
+    );
+  });
+
+  it("debería despachar restartGame y resetVoted cuando se llama a handleRestartGame", async () => {
+    mockState.game.state = "revealed_cards";
+
+    const roles = ["owner"];
+    const { getByText } = render(<Table roles={roles} />);
+
+    // simular el clic en el boton Revelar cartas
+    fireEvent.click(getByText("Nueva votación"));
+
+    await waitFor(
+      () => expect(mockDispatch).toHaveBeenCalledWith(restartGame()),
+      { timeout: 3000 }
+    );
+    await waitFor(
+      () => expect(mockDispatch).toHaveBeenCalledWith(resetVoted()),
       { timeout: 3000 }
     );
   });
