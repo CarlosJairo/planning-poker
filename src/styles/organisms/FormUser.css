@@ -8,6 +8,10 @@
   font-size: 14px;
 }
 
+label[for="nombre-partida"] {
+  font-weight: 600;
+}
+
 .roles-container {
   display: flex;
   justify-content: space-around;

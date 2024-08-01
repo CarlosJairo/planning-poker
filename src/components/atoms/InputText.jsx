@@ -5,8 +5,8 @@ const Input = ({ id, name, value, onChange }) => {
     <input
       type="text"
       name={name || ""}
-      id={id}
-      value={value}
+      id={id || ""}
+      value={value || ""}
       onChange={onChange}
       required
     />

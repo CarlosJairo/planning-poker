@@ -10,7 +10,7 @@ import { setCurrentUser } from "../../reducers/user/userSlice";
 import { createGame } from "../../reducers/game/gameSlice";
 import "../../styles/organisms/FormUser.css";
 
-const UserForm = ({ setShowModal }) => {
+const UserForm = ({ setModalForm }) => {
   const { name, setName, error, handleSubmit } = useForm({ onSubmit });
   const { gameName } = useParams();
   const [rol, setRol] = useState("player");
@@ -25,7 +25,7 @@ const UserForm = ({ setShowModal }) => {
   const generateUniqueId = () => new Date().getTime().toString();
 
   function onSubmit() {
-    setShowModal(false);
+    setModalForm(false);
 
     const currentUser = {
       id: generateUniqueId(),
