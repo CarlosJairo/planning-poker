@@ -29,7 +29,7 @@ const SelectableCardContainer = ({ poolCards }) => {
     <section className={`selectable-card-container ${isViwer && "none"} `}>
       <h6>Elige una carta 👇</h6>
       <div className={`${disabledCards && "disabled"} cards`}>
-        {poolCards || poolCards.length > 0 ? (
+        {poolCards ? (
           poolCards.map((card) => (
             <Card
               key={card.str}
