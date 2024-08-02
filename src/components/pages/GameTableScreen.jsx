@@ -19,7 +19,9 @@ const GameTableScreen = () => {
   return (
     <section className="game-table-screen">
       <HeaderTableScreen toggleModalLink={toggleModalLink} />
+
       <TableAndPlayers />
+
       {state === "revealed_cards" ? (
         <CardResultsCtn />
       ) : (
