@@ -7,7 +7,7 @@ import useForm from "../../hooks/useForm";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setCurrentUser } from "../../reducers/user/userSlice";
-import { createGame } from "../../reducers/game/gameSlice";
+import { addPlayer, createGame } from "../../reducers/game/gameSlice";
 import "../../styles/organisms/FormUser.css";
 
 const UserForm = ({ setModalForm }) => {
@@ -40,7 +40,7 @@ const UserForm = ({ setModalForm }) => {
 
     dispatch(setCurrentUser(currentUser));
 
-    isOwner ? dispatch(createGame(gameInfo)) : console.log("agregar jugador");
+    isOwner ? dispatch(createGame(gameInfo)) : dispatch(addPlayer(currentUser));
   }
 
   return (

@@ -1,8 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+/*
+  estados del juego: 
+    no_started
+    started
+    ready_to_show_cards
+    revealed_cards
+*/
+
 const initialState = {
   gameName: "",
-  state: "no started",
+  state: "no_started",
   players: [
     // {
     //   id: "2",
@@ -124,6 +132,9 @@ export const gameSlice = createSlice({
       state.results = { count: [], avarage: 0 };
       state.players = state.players.map((p) => ({ ...p, voted: false }));
     },
+    addPlayer: (state, action) => {
+      state.players = [...state.players, action.payload];
+    },
 
     // agregarJugador: (state, action) => {
     //   state.players.push(action.payload);
@@ -150,6 +161,7 @@ export const {
   everyoneVoted,
   countCardsAndAverage,
   restartGame,
+  addPlayer,
 } = gameSlice.actions;
 
 export default gameSlice.reducer;
