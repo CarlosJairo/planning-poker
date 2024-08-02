@@ -42,9 +42,6 @@ describe("SelectableCardContainer component", () => {
 
     // Verifica que las acciones de Redux fueron despachadas
     const actions = store.getActions();
-    // expect(actions).toContainEqual(
-    //   selectCard({ card: { id: "01", str: "0", value: 0 }, id: "01" })
-    // );
     expect(actions).toContainEqual(voteCard({ id: "01", str: "0", value: 0 }));
   });
 
