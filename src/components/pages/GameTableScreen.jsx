@@ -25,6 +25,7 @@ const GameTableScreen = () => {
       ) : (
         <SelectableCardContainer poolCards={poolCards} />
       )}
+
       {modalForm && (
         <Modal isOpen={modalForm}>
           <UserForm setModalForm={setModalForm} />

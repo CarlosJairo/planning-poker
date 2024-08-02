@@ -7,23 +7,32 @@ import "../../styles/organisms/SelectableCardContainer.css";
 
 const SelectableCardContainer = ({ poolCards }) => {
   const [disabledCards, setDisabledCards] = useState(false);
-  const { rolCurrentUser } = useSelector((state) => state.user);
+  const { rolCurrentUser, id } = useSelector((state) => state.user);
 
   const dispatch = useDispatch();
   const isViwer = rolCurrentUser.includes("viwer");
 
   // Esta función se memorizada para evitar su recreación en cada renderizado.
-  const sendCard = useCallback(
-    (card) => {
-      dispatch(selectCard(card));
-      dispatch(voteCard(card));
-      dispatch(everyoneVoted());
+  const sendCard = (card) => {
+    dispatch(selectCard({ card, id }));
+    dispatch(voteCard(card));
+    dispatch(everyoneVoted());
 
-      // Desactivar los clicks
-      setDisabledCards(true);
-    },
-    [dispatch]
-  );
+    // Desactivar los clicks
+    setDisabledCards(true);
+  };
+  // const sendCard = useCallback(
+  //   (card) => {
+  //     console.log();
+  //     dispatch(selectCard({ card, id }));
+  //     dispatch(voteCard(card));
+  //     dispatch(everyoneVoted());
+
+  //     // Desactivar los clicks
+  //     setDisabledCards(true);
+  //   },
+  //   [dispatch]
+  // );
 
   return (
     <section className={`selectable-card-container ${isViwer && "none"} `}>

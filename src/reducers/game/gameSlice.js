@@ -17,7 +17,12 @@ const initialState = {
       rol: ["player"],
       voted: { id: "01", str: "0", value: 0 },
     },
-    // { id: "4", name: "Tomas", rol: ["viwer"], voted: false },
+    {
+      id: "4",
+      name: "Tomas",
+      rol: ["player"],
+      voted: { id: "1", str: "1", value: 1 },
+    },
     // { id: "5", name: "Andrés", rol: ["player"], voted: false },
     // {
     //   id: "6",
@@ -53,10 +58,19 @@ export const gameSlice = createSlice({
       state.state = "started";
       state.admins = [...state.admins, action.payload.player];
       state.players = [...state.players, action.payload.player];
-      state.selectedCards = [{ id: "0", str: "0", value: 0 }];
+      state.selectedCards = [
+        { id: "0", str: "0", value: 0 },
+        { id: "1", str: "1", value: 1 },
+      ];
     },
     selectCard: (state, action) => {
-      state.selectedCards = [...state.selectedCards, action.payload];
+      const { card, id } = action.payload;
+      console.log(card, id);
+      state.players = state.players.map((p) =>
+        p.id === id ? { ...p, voted: card } : p
+      );
+
+      state.selectedCards = [...state.selectedCards, card];
     },
     userVoted: (state, action) => {
       const { id, card } = action.payload;

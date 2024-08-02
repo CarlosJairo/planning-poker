@@ -14,13 +14,12 @@ const UserForm = ({ setModalForm }) => {
   const { name, setName, error, handleSubmit } = useForm({ onSubmit });
   const { gameName } = useParams();
   const [rol, setRol] = useState("player");
+  const dispatch = useDispatch();
 
   const { rolCurrentUser } = useSelector((state) => state.user);
 
   // Verificar si tiene el rol de propietario
   const isOwner = rolCurrentUser.includes("owner");
-
-  const dispatch = useDispatch();
 
   const generateUniqueId = () => new Date().getTime().toString();
 
@@ -31,6 +30,7 @@ const UserForm = ({ setModalForm }) => {
       id: generateUniqueId(),
       name,
       rol: isOwner ? [...rolCurrentUser, rol] : [rol],
+      voted: false,
     };
 
     const gameInfo = {
