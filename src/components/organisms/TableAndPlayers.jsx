@@ -1,3 +1,4 @@
+import React from "react";
 import Table from "../molecules/Table";
 import UserItem from "../molecules/UserItem";
 import Locker from "../molecules/Locker";

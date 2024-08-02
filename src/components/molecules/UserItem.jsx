@@ -38,7 +38,7 @@ const UserItem = ({ user }) => {
             <ReetWeet />
           </Button>
         )}
-        {user.name}{" "}
+        {user.name}
       </p>
     </div>
   );
