@@ -135,6 +135,16 @@ export const gameSlice = createSlice({
     addPlayer: (state, action) => {
       state.players = [...state.players, action.payload];
     },
+    toggleViwer: (state, action) => {
+      const id = action.payload;
+      const user = state.players.find((p) => p.id === id);
+
+      const index = user.rol.indexOf("viwer");
+
+      index < 0 ? user.rol.push("viwer") : user.rol.splice(index, 1);
+
+      state.players = state.players.map((p) => (p.id === id ? user : p));
+    },
 
     // agregarJugador: (state, action) => {
     //   state.players.push(action.payload);
@@ -162,6 +172,7 @@ export const {
   countCardsAndAverage,
   restartGame,
   addPlayer,
+  toggleViwer,
 } = gameSlice.actions;
 
 export default gameSlice.reducer;

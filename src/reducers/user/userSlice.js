@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   id: "",
   name: "",
-  rolCurrentUser: [],
+  rolCurrentUser: ["owner"],
   voted: false,
 };
 
@@ -30,6 +30,12 @@ const userSlice = createSlice({
       state.name = "";
       state.rolCurrentUser = [];
     },
+    toggleViwerCurrent: (state) => {
+      const index = state.rolCurrentUser.indexOf("viwer");
+      index < 0
+        ? state.rolCurrentUser.push("viwer")
+        : state.rolCurrentUser.splice(index, 1);
+    },
   },
 });
 
@@ -39,6 +45,7 @@ export const {
   clearUsuarioActual,
   voteCard,
   resetVoted,
+  toggleViwerCurrent,
 } = userSlice.actions;
 
 export default userSlice.reducer;
