@@ -21,18 +21,6 @@ const SelectableCardContainer = ({ poolCards }) => {
     // Desactivar los clicks
     setDisabledCards(true);
   };
-  // const sendCard = useCallback(
-  //   (card) => {
-  //     console.log();
-  //     dispatch(selectCard({ card, id }));
-  //     dispatch(voteCard(card));
-  //     dispatch(everyoneVoted());
-
-  //     // Desactivar los clicks
-  //     setDisabledCards(true);
-  //   },
-  //   [dispatch]
-  // );
 
   return (
     <section className={`selectable-card-container ${isViwer && "none"} `}>
