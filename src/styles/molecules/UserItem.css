@@ -31,3 +31,20 @@
   box-shadow: none;
   background-color: transparent;
 }
+
+.user-item-name {
+  position: relative;
+}
+
+.user-item-name button {
+  position: absolute;
+  fill: white;
+  width: 1rem;
+  right: 0;
+  width: 2rem;
+  transform: translate(100%, 0) rotate(20deg);
+  cursor: pointer;
+}
+.user-item-name svg {
+  width: 1rem;
+}
