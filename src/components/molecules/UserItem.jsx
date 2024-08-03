@@ -18,7 +18,8 @@ const UserItem = ({ user }) => {
   const revealedCards = state === "revealed_cards" || state === "finished";
 
   const isViwer = rol.includes("viwer");
-  const isOwner = rolCurrentUser.includes("owner");
+  const isOwner = rol.includes("owner");
+  const isUserCurrentOwner = rolCurrentUser.includes("owner");
 
   const addAdmin = () => {
     dispatch(addRolOwner(id));
@@ -32,7 +33,7 @@ const UserItem = ({ user }) => {
         <CardOnTable voted={voted} revealedCards={revealedCards} />
       )}
       <p className={"user-item-name"}>
-        {isOwner && (
+        {isUserCurrentOwner && !isOwner && (
           <Button onClick={addAdmin}>
             <UserPlus />
           </Button>

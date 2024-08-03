@@ -1,3 +1,5 @@
+import React from "react";
+
 const UserPlus = ({ className }) => {
   return (
     <svg

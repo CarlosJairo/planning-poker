@@ -1,44 +1,88 @@
 import React from "react";
-import { render } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import { Provider } from "react-redux";
 import configureStore from "redux-mock-store";
 import UserItem from "../molecules/UserItem";
+import { addRolOwner } from "../../reducers/game/gameSlice";
 import "@testing-library/jest-dom";
+import { useDispatch } from "react-redux";
+
+jest.mock("react-redux", () => ({
+  ...jest.requireActual("react-redux"),
+  useDispatch: jest.fn(),
+}));
 
 const mockStore = configureStore([]);
 
-describe("UserItem component logic", () => {
+describe("Componente UserItem", () => {
   let store;
-  const initialState = {
-    game: { state: "started" },
-  };
+  let dispatch;
 
   beforeEach(() => {
+    const initialState = {
+      game: {
+        state: "playing",
+        players: [{ id: 1, name: "TestUser", rol: ["viwer"], voted: false }],
+      },
+      user: { id: 1, name: "TestUser", rolCurrentUser: ["owner"] },
+    };
+
     store = mockStore(initialState);
+    dispatch = jest.fn();
+    useDispatch.mockReturnValue(dispatch);
   });
 
-  it("verificar si UserLogo se está renderizando segun su rol y mostrando su 1ra letra", () => {
-    const user = { id: 1, name: "User1", rol: ["viwer"], voted: false };
-
-    const { getByText } = render(
+  // Verifica que se muestre el botón UserPlus si el rol actual del usuario incluye 'owner'
+  it("debería mostrar el botón UserPlus si el rol actual del usuario incluye 'owner'", () => {
+    render(
       <Provider store={store}>
-        <UserItem user={user} />
+        <UserItem
+          user={{ id: 1, name: "TestUser", rol: ["viwer"], voted: false }}
+        />
       </Provider>
     );
 
-    expect(getByText("U")).toBeInTheDocument();
+    expect(screen.getByRole("button")).toBeInTheDocument();
+    expect(screen.getByText("TestUser")).toBeInTheDocument();
   });
 
-  it("deberia renderizar CardOnTable si el rol no es viwer", () => {
-    const user = { id: 1, name: "User1", rol: ["player"], voted: true };
+  // Verifica que no se muestre el botón UserPlus si el rol actual del usuario no incluye 'owner'
+  it("no debería mostrar el botón UserPlus si el rol actual del usuario no incluye 'owner'", () => {
+    const initialState = {
+      game: {
+        state: "playing",
+        players: [{ id: 1, name: "TestUser", rol: ["viwer"], voted: false }],
+      },
+      user: { id: 1, name: "TestUser", rolCurrentUser: ["player"] },
+    };
 
-    const { container } = render(
+    store = mockStore(initialState);
+
+    render(
       <Provider store={store}>
-        <UserItem user={user} />
+        <UserItem
+          user={{ id: 1, name: "TestUser", rol: ["viwer"], voted: false }}
+        />
       </Provider>
     );
 
-    const cardOnTable = container.querySelector(".card-on-table");
-    expect(cardOnTable).toBeInTheDocument();
+    expect(screen.queryByRole("button")).not.toBeInTheDocument();
+    expect(screen.getByText("TestUser")).toBeInTheDocument();
+  });
+
+  // Verifica que se despache la acción addRolOwner cuando se hace clic en el botón UserPlus
+  it("debería despachar la acción addRolOwner cuando se hace clic en el botón UserPlus", () => {
+    render(
+      <Provider store={store}>
+        <UserItem
+          user={{ id: 1, name: "TestUser", rol: ["viwer"], voted: false }}
+        />
+      </Provider>
+    );
+
+    const button = screen.getByRole("button");
+    fireEvent.click(button);
+
+    expect(dispatch).toHaveBeenCalledWith(addRolOwner(1));
   });
 });
