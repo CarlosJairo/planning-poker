@@ -42,7 +42,7 @@
   width: 1rem;
   right: 0;
   width: 2rem;
-  transform: translate(100%, 0) rotate(20deg);
+  transform: translate(100%, 0) rotate(10deg);
   cursor: pointer;
 }
 .user-item-name svg {

@@ -4,6 +4,7 @@ import UserItem from "../molecules/UserItem";
 import Locker from "../molecules/Locker";
 import { useSelector } from "react-redux";
 import "../../styles/organisms/TableAndPlayers.css";
+import CurrentUserItem from "../molecules/CurrentUserItem";
 
 // Exportar para hacer prueba unitaria
 export const filterPlayers = (players, currentUser) =>
@@ -19,7 +20,8 @@ const TableAndPlayers = () => {
   return (
     <section className="table-and-players">
       <Locker className={"currentUser user-item"}>
-        <UserItem user={currentUser} />
+        {/* <UserItem user={currentUser} /> */}
+        <CurrentUserItem user={currentUser} />
       </Locker>
 
       <Locker className="table-locker">

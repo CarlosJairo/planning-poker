@@ -145,13 +145,15 @@ export const gameSlice = createSlice({
 
       state.players = state.players.map((p) => (p.id === id ? user : p));
     },
+    addRolOwner: (state, action) => {
+      const playerId = action.payload;
 
-    // agregarJugador: (state, action) => {
-    //   state.players.push(action.payload);
-    //   if (action.payload.rol === "owner") {
-    //     state.admins.push(action.payload.id);
-    //   }
-    // },
+      // colocar todos los players pero con admin en el nuevo usuarios
+      state.players = state.players.map((p) =>
+        p.id === playerId ? { ...p, rol: [...p.rol, "owner"] } : p
+      );
+    },
+
     // cambiarModoDePuntaje: (state, action) => {
     //   state.poolCards = action.payload;
     //   state.selectedCards = [];
@@ -173,6 +175,7 @@ export const {
   restartGame,
   addPlayer,
   toggleViwer,
+  addRolOwner,
 } = gameSlice.actions;
 
 export default gameSlice.reducer;

@@ -3,25 +3,25 @@ import CardOnTable from "../atoms/CardOnTable";
 import UserLogo from "../atoms/UserLogo";
 import { useDispatch, useSelector } from "react-redux";
 import Button from "../atoms/Button";
+import { toggleViwer } from "../../reducers/game/gameSlice";
+import { toggleViwerCurrent } from "../../reducers/user/userSlice";
+import ReetWeet from "../atoms/ReetWeet";
 import "../../styles/molecules/UserItem.css";
-import UserPlus from "../atoms/UserPlus";
-import { addRolOwner } from "../../reducers/game/gameSlice";
 
-const UserItem = ({ user }) => {
-  const { id, name, voted, rol } = user;
+const CurrentUserItem = ({ user }) => {
+  const { id, name, voted, rolCurrentUser } = user;
 
   const { state } = useSelector((state) => state.game);
-  const dispatch = useDispatch();
-
-  const { rolCurrentUser } = useSelector((state) => state.user);
-
   const revealedCards = state === "revealed_cards" || state === "finished";
 
-  const isViwer = rol.includes("viwer");
+  const dispatch = useDispatch();
+
+  const isViwer = rolCurrentUser.includes("viwer");
   const isOwner = rolCurrentUser.includes("owner");
 
-  const addAdmin = () => {
-    dispatch(addRolOwner(id));
+  const changeRol = () => {
+    dispatch(toggleViwer(id));
+    dispatch(toggleViwerCurrent());
   };
 
   return (
@@ -33,8 +33,8 @@ const UserItem = ({ user }) => {
       )}
       <p className={"user-item-name"}>
         {isOwner && (
-          <Button onClick={addAdmin}>
-            <UserPlus />
+          <Button onClick={changeRol}>
+            <ReetWeet />
           </Button>
         )}
         {user.name}
@@ -43,4 +43,4 @@ const UserItem = ({ user }) => {
   );
 };
 
-export default UserItem;
+export default CurrentUserItem;
