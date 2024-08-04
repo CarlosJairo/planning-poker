@@ -63,6 +63,16 @@
   box-shadow: 0 0 0.8rem #bc65ffab;
 }
 
+.title-and-select-ctn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 740px;
+  margin: auto;
+}
+
 @media (min-width: 479px) {
   .cards {
     justify-content: center;

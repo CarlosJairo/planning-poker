@@ -1,5 +1,5 @@
-// HU2 Visualizar la mesa de votación con los demas usuarios - ADMIN-OWNER
-// HU9 Visualizar la mesa de votación con los demas usuarios - JUGADOR
+// // HU2 Visualizar la mesa de votación con los demas usuarios - ADMIN-OWNER
+// // HU9 Visualizar la mesa de votación con los demas usuarios - JUGADOR
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";

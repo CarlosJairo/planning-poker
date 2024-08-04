@@ -4,6 +4,7 @@ import { everyoneVoted, selectCard } from "../../reducers/game/gameSlice";
 import { voteCard } from "../../reducers/user/userSlice";
 import Card from "../atoms/Card";
 import "../../styles/organisms/SelectableCardContainer.css";
+import SelectPoolCards from "../molecules/SelectPoolCards";
 
 const SelectableCardContainer = ({ poolCards }) => {
   const [disabledCards, setDisabledCards] = useState(false);
@@ -23,8 +24,14 @@ const SelectableCardContainer = ({ poolCards }) => {
   };
 
   return (
-    <section className={`selectable-card-container ${isViwer && "none"} `}>
-      <h6>Elige una carta 👇</h6>
+    <section
+      className={`selectable-card-container ${isViwer && "none"} `}
+      data-testid="selectable-card-container"
+    >
+      <div className="title-and-select-ctn">
+        <h6>Elige una carta 👇</h6>
+        <SelectPoolCards />
+      </div>
       <div className={`${disabledCards && "disabled"} cards`}>
         {poolCards ? (
           poolCards.map((card) => (
