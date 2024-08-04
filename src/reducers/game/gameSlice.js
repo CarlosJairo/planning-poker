@@ -170,12 +170,31 @@ export const gameSlice = createSlice({
       const id = action.payload;
       const user = state.players.find((p) => p.id === id);
 
-      const index = user.rol.indexOf("viwer");
+      // Función para alternar la presencia de un rol en el array 'rol' del usuario
+      const toggleRole = (role) => {
+        const index = user.rol.indexOf(role);
+        index < 0 ? user.rol.push(role) : user.rol.splice(index, 1);
+      };
 
-      index < 0 ? user.rol.push("viwer") : user.rol.splice(index, 1);
+      toggleRole("viwer");
+      toggleRole("player");
 
       state.players = state.players.map((p) => (p.id === id ? user : p));
+
+      // Calcular el número de jugadores en el juego (jugadores que tienen el rol 'player')
+      const playersInGame = state.players.filter((player) =>
+        player.rol.includes("player")
+      ).length;
+
+      // Actualizar el estado según la cantidad de jugadores y cartas seleccionadas
+      const newState =
+        playersInGame === state.selectedCards.length
+          ? "ready_to_show_cards"
+          : "started";
+
+      state.state = newState;
     },
+
     addRolOwner: (state, action) => {
       const playerId = action.payload;
 
